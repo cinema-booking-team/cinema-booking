@@ -1,1 +1,452 @@
- 
+/* ===== ПЕРЕМЕННЫЕ (КОНСТАНТЫ) ===== */
+:root {
+    --accent-primary: #bc13fe;      /* Пурпурный */
+    --accent-secondary: #bc13fe;    /* Тоже пурпурный (без синего) */
+    --accent-gradient: linear-gradient(135deg, #bc13fe, #9b00e6);
+    --accent-hover: #9b00e6;         /* Темнее пурпурный для ховера */
+    --accent-glow: rgba(188, 19, 254, 0.6);
+    --accent-pulse: rgba(188, 19, 254, 0.8);
+}
+
+/* ===== ГЛОБАЛЬНЫЕ СТИЛИ ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000000 !important;
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    color: #ffffff;
+    padding-top: 76px;
+}
+
+/* ===== ШАПКА ===== */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px var(--accent-glow);
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.navbar-brand i {
+    color: var(--accent-primary);
+    margin-right: 8px;
+}
+
+.nav-link {
+    color: #ffffff !important;
+    margin: 0 12px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--accent-primary) !important;
+    transform: translateY(-2px);
+    text-shadow: 0 0 10px var(--accent-primary);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--accent-primary);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 80%;
+}
+
+.nav-link.active {
+    color: var(--accent-primary) !important;
+    border-bottom: 2px solid var(--accent-primary);
+}
+
+/* ===== ГЛАВНЫЙ ПОСТЕР ===== */
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('../images/c5df0a8904e7a87ad1516dabd15a08bb.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+    margin-top: -20px;
+}
+
+.hero-overlay {
+    width: 100%;
+}
+
+.hero-content {
+    text-align: center;
+    padding: 80px 0;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    animation: fadeInUp 0.8s ease;
+    color: #ffffff;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: #cccccc;
+    margin-bottom: 30px;
+    animation: fadeInUp 1s ease;
+}
+
+/* ===== КНОПКА "ВЫБРАТЬ ФИЛЬМ" ===== */
+.btn-cta {
+    background: linear-gradient(135deg, #bc13fe, #9b00e6);
+    color: #ffffff;
+    border: none;
+    padding: 14px 40px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: fadeInUp 1.2s ease;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.btn-cta::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(188, 19, 254, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    z-index: -1;
+}
+
+.btn-cta:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(188, 19, 254, 0.6), 0 0 50px rgba(188, 19, 254, 0.3);
+    animation: pulse 0.8s ease;
+}
+
+.btn-cta:active {
+    transform: translateY(0px);
+}
+
+/* ===== КАТАЛОГ ===== */
+.catalog-section {
+    padding: 40px 0 80px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    border-bottom: 3px solid var(--accent-primary);
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.section-header h2 i {
+    color: var(--accent-primary);
+    margin-right: 10px;
+}
+
+.section-header p {
+    color: #aaaaaa;
+    margin-top: 15px;
+    font-size: 1.1rem;
+}
+
+/* ===== КАРТОЧКИ ФИЛЬМОВ ===== */
+.movie-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    height: 100%;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.movie-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(188, 19, 254, 0.4);
+}
+
+.movie-poster {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 2 / 3;
+}
+
+.movie-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.movie-card:hover .movie-poster img {
+    transform: scale(1.05);
+}
+
+.movie-rating {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--accent-primary);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.movie-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.movie-card:hover .movie-overlay {
+    opacity: 1;
+}
+
+/* ===== КНОПКА "КУПИТЬ БИЛЕТ" ===== */
+.btn-book {
+    background: linear-gradient(135deg, #bc13fe, #9b00e6);
+    color: #ffffff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    z-index: 1;
+}
+
+.btn-book::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+    z-index: -1;
+}
+
+.btn-book:hover::before {
+    left: 100%;
+}
+
+.btn-book:hover {
+    background: #9b00e6;
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 5px 20px rgba(188, 19, 254, 0.6);
+}
+
+.btn-book:active {
+    transform: scale(0.95);
+}
+
+.movie-info {
+    padding: 18px;
+    background: #ffffff;
+}
+
+.movie-info h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #000000;
+}
+
+.movie-genre {
+    font-size: 0.85rem;
+    color: #666666;
+    margin-bottom: 5px;
+}
+
+.movie-duration {
+    font-size: 0.8rem;
+    color: #888888;
+    margin-bottom: 10px;
+}
+
+.movie-price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    margin-top: 10px;
+}
+
+.movie-card:hover .movie-price {
+    animation: pulse 0.6s ease;
+}
+
+/* ===== ПОДВАЛ ===== */
+.footer {
+    background: #0a0a0a;
+    color: #aaaaaa;
+    padding: 50px 0 20px 0;
+    margin-top: 60px;
+    border-top: 1px solid #222222;
+}
+
+.footer h4, .footer h5 {
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.footer h4 i {
+    color: var(--accent-primary);
+}
+
+.social-icons a {
+    color: #ffffff;
+    background: #222222;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    margin-right: 10px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-icons a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #bc13fe, #9b00e6);
+    transition: left 0.4s ease;
+    z-index: -1;
+}
+
+.social-icons a:hover::before {
+    left: 0;
+}
+
+.social-icons a:hover {
+    transform: translateY(-5px) rotate(360deg);
+    color: #ffffff;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    margin-top: 30px;
+    border-top: 1px solid #222222;
+    font-size: 0.9rem;
+}
+
+/* ===== АНИМАЦИИ ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        text-shadow: 0 0 0px var(--accent-primary);
+    }
+    50% {
+        text-shadow: 0 0 10px var(--accent-primary);
+    }
+    100% {
+        text-shadow: 0 0 0px var(--accent-primary);
+    }
+}
+
+@keyframes glowPulse {
+    0% {
+        text-shadow: 0 0 5px var(--accent-primary);
+    }
+    50% {
+        text-shadow: 0 0 20px var(--accent-primary);
+    }
+    100% {
+        text-shadow: 0 0 5px var(--accent-primary);
+    }
+}
+
+/* Активная ссылка с пульсацией */
+.nav-link.active {
+    animation: glowPulse 2s infinite;
+}
+
+/* ===== АДАПТИВ ===== */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .movie-info h3 {
+        font-size: 0.95rem;
+    }
+}
