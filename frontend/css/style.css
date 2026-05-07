@@ -6,6 +6,7 @@
     --accent-hover: #9b00e6;         /* Темнее пурпурный для ховера */
     --accent-glow: rgba(188, 19, 254, 0.6);
     --accent-pulse: rgba(188, 19, 254, 0.8);
+    --transition-speed: 1s;
 }
 
 /* ===== ГЛОБАЛЬНЫЕ СТИЛИ ===== */
@@ -52,7 +53,6 @@ body {
 
 .nav-link:hover {
     color: var(--accent-primary) !important;
-    transform: translateY(-2px);
     text-shadow: 0 0 10px var(--accent-primary);
 }
 
@@ -77,20 +77,66 @@ body {
     border-bottom: 2px solid var(--accent-primary);
 }
 
-/* ===== ГЛАВНЫЙ ПОСТЕР ===== */
+/* ===== ГЛАВНЫЙ ПОСТЕР С ПЛАВНОЙ СМЕНОЙ ФОНА ===== */
 .hero-section {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('../images/c5df0a8904e7a87ad1516dabd15a08bb.jpg');
-    background-size: cover;
-    background-position: center;
     min-height: 85vh;
     display: flex;
     align-items: center;
     margin-bottom: 60px;
     margin-top: -20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Анимированный фоновый слой */
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform var(--transition-speed) ease-in-out, opacity var(--transition-speed) ease-in-out;
+    z-index: -2;
+}
+
+.hero-background.current {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.hero-background.next {
+    opacity: 0;
+    transform: scale(1.05);
+}
+
+.hero-background.sliding-out {
+    transform: scale(1.05);
+    opacity: 0;
+}
+
+.hero-background.sliding-in {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Затемнение поверх фона */
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8));
+    z-index: -1;
 }
 
 .hero-overlay {
     width: 100%;
+    position: relative;
+    z-index: 1;
 }
 
 .hero-content {
@@ -98,20 +144,40 @@ body {
     padding: 80px 0;
 }
 
+/* ЯРКИЙ ТЕКСТ */
 .hero-title {
     font-size: 3.5rem;
     font-weight: 800;
     margin-bottom: 20px;
     animation: fadeInUp 0.8s ease;
     color: #ffffff;
+    text-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.hero-title .accent-text {
+    background: linear-gradient(135deg, var(--accent-primary), #ff69b4);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
 }
 
 .hero-subtitle {
     font-size: 1.2rem;
-    color: #cccccc;
+    color: #f0f0f0;
     margin-bottom: 30px;
     animation: fadeInUp 1s ease;
+    text-shadow: 0 0 30px rgba(0,0,0,0.5);
+    font-weight: 500;
+
 }
+.hero-subtitle {
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+
 
 /* ===== КНОПКА "ВЫБРАТЬ ФИЛЬМ" ===== */
 .btn-cta {
@@ -379,7 +445,7 @@ body {
 }
 
 .social-icons a:hover {
-    transform: translateY(-5px) rotate(360deg);
+    transform: rotate(360deg);
     color: #ffffff;
 }
 
