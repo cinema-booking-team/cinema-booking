@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кинотеатр | Афиша</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- ШАПКА -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-film"></i> <span style="color: white;">CINEMA</span><span style="color: #bc13fe;">BOOK</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="movies.html"><i class="fas fa-ticket-alt"></i> Афиша</a></li>
+                    <li class="nav-item"><a class="nav-link" href="profile.html"><i class="fas fa-user"></i> Мои билеты</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html"><i class="fas fa-sign-in-alt"></i> Вход</a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-user-plus"></i> Регистрация</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+        <!-- ГЛАВНЫЙ ПОСТЕР (КАРУСЕЛЬ ФОНОВ) -->
+    <div class="hero-section" id="heroSection">
+        <div class="hero-overlay">
+            <div class="container hero-content">
+                <h1 class="hero-title">БОЛЬШОЙ ЭКРАН <span class="accent-text">БОЛЬШИЕ ЭМОЦИИ</span></h1>
+                <p class="hero-subtitle">Билеты на премьеры, удобный онлайн-выбор мест и лучшие цены</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- КАТАЛОГ ФИЛЬМОВ (8+ фильмов) -->
+    <div class="container catalog-section" id="catalog">
+        <div class="section-header">
+            <h2>СЕГОДНЯ В ПРОКАТЕ</h2>
+            <p>фильмы, которые стоит увидеть</p>
+        </div>
+
+        <div class="row g-4" id="movies-list">
+            <!-- Фильм 1 -->
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="movie-card">
+                    <div class="movie-poster">
+                        <img src="../images/dune.webp" alt="Дюна 2" onerror="this.src='https://via.placeholder.com/300x450/1a1a1a/bc13fe?text=Дюна+2'">
+                        <div class="movie-rating">★ 8.7</div>
+                        <div class="movie-overlay">
+                            <button class="btn-book" onclick="buyTicket(1)">Купить билет</button>
+                        </div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Дюна: Часть вторая</h3>
+                        <p class="movie-genre">Фантастика / Боевик</p>
+                        <p class="movie-duration">166 мин | 16+</p>
+                        <div class="movie-price">500 ₽</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Фильм 2 -->
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="movie-card">
+                    <div class="movie-poster">
+                        <img src="../images/barbie.jpg" alt="Барби" onerror="this.src='https://via.placeholder.com/300x450/1a1a1a/bc13fe?text=Барби'">
+                        <div class="movie-rating">★ 7.9</div>
+                        <div class="movie-overlay">
+                            <button class="btn-book" onclick="buyTicket(2)">Купить билет</button>
+                        </div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Барби</h3>
+                        <p class="movie-genre">Комедия / Приключения</p>
+                        <p class="movie-duration">114 мин | 12+</p>
+                        <div class="movie-price">450 ₽</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Фильм 3 -->
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="movie-card">
+                    <div class="movie-poster">
+                        <img src="../images/opp.webp" alt="Оппенгеймер" onerror="this.src='https://via.placeholder.com/300x450/1a1a1a/bc13fe?text=Оппенгеймер'">
+                        <div class="movie-rating">★ 8.9</div>
+                        <div class="movie-overlay">
+                            <button class="btn-book" onclick="buyTicket(3)">Купить билет</button>
+                        </div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Оппенгеймер</h3>
+                        <p class="movie-genre">Драма / Биография</p>
+                        <p class="movie-duration">180 мин | 18+</p>
+                        <div class="movie-price">550 ₽</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Фильм 4 -->
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="movie-card">
+                    <div class="movie-poster">
+                        <img src="../images/air.jpg" alt="Мастер Воздуха" onerror="this.src='https://via.placeholder.com/300x450/1a1a1a/bc13fe?text=Мастер+Воздуха'">
+                        <div class="movie-rating">★ 8.3</div>
+                        <div class="movie-overlay">
+                            <button class="btn-book" onclick="buyTicket(4)">Купить билет</button>
+                        </div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Мастер воздуха</h3>
+                        <p class="movie-genre">Военный / Боевик</p>
+                        <p class="movie-duration">150 мин | 18+</p>
+                        <div class="movie-price">520 ₽</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Фильм 5 -->
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="movie-card">
+                    <div class="movie-poster">
+                        <img src="../images/brain.jpg" alt="Головоломка 2" onerror="this.src='https://via.placeholder.com/300x450/1a1a1a/bc13fe?text=Головоломка+2'">
+                        <div class="movie-rating">★ 8.1</div>
+                        <div class="movie-overlay">
+                            <button class="btn-book" onclick="buyTicket(5)">Купить билет</button>
+                        </div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Головоломка 2</h3>
+                        <p class="movie-genre">Мультфильм / Комедия</p>
+                        <p class="movie-duration">96 мин | 6+</p>
+                        <div class="movie-price">400 ₽</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Фильм 6 -->
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="movie-card">
+                    <div class="movie-poster">
+                        <img src="../images/deadpool.jpg" alt="Дэдпул 3" onerror="this.src='https://via.placeholder.com/300x450/1a1a1a/bc13fe?text=Дэдпул+3'">
+                        <div class="movie-rating">★ 8.4</div>
+                        <div class="movie-overlay">
+                            <button class="btn-book" onclick="buyTicket(6)">Купить билет</button>
+                        </div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Дэдпул 3</h3>
+                        <p class="movie-genre">Экшн / Комедия</p>
+                        <p class="movie-duration">127 мин | 18+</p>
+                        <div class="movie-price">580 ₽</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Фильм 7 -->
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="movie-card">
+                    <div class="movie-poster">
+                        <img src="../images/venom.jpg" alt="Веном 3" onerror="this.src='https://via.placeholder.com/300x450/1a1a1a/bc13fe?text=Веном+3'">
+                        <div class="movie-rating">★ 7.6</div>
+                        <div class="movie-overlay">
+                            <button class="btn-book" onclick="buyTicket(7)">Купить билет</button>
+                        </div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Веном: Последний танец</h3>
+                        <p class="movie-genre">Фантастика / Боевик</p>
+                        <p class="movie-duration">120 мин | 16+</p>
+                        <div class="movie-price">530 ₽</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Фильм 8 -->
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="movie-card">
+                    <div class="movie-poster">
+                        <img src="../images/100.webp" alt="Сто лет одиночества" onerror="this.src='https://via.placeholder.com/300x450/1a1a1a/bc13fe?text=Сто+лет+одиночества'">
+                        <div class="movie-rating">★ 8.8</div>
+                        <div class="movie-overlay">
+                            <button class="btn-book" onclick="buyTicket(8)">Купить билет</button>
+                        </div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Сто лет одиночества</h3>
+                        <p class="movie-genre">Драма / История</p>
+                        <p class="movie-duration">145 мин | 18+</p>
+                        <div class="movie-price">590 ₽</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ПОДВАЛ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4><i class="fas fa-film"></i> CINEMABOOK</h4>
+                    <p>Онлайн-сервис покупки билетов в кинотеатры города</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Контакты</h5>
+                    <p><i class="fas fa-phone"></i> +7 (999) 999-99-91<br>
+                    <i class="fas fa-envelope"></i> info@cinemabook.ru</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Мы в соцсетях</h5>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/movies.js"></script>
+</body>
+</html>

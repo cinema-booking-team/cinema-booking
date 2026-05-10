@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кинотеатр | Админ-панель</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- ШАПКА -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="movies.html">
+                <i class="fas fa-film"></i> <span style="color: white;">CINEMA</span><span style="color: #bc13fe;">BOOK</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="movies.html"><i class="fas fa-ticket-alt"></i> Афиша</a></li>
+                    <li class="nav-item"><a class="nav-link" href="profile.html"><i class="fas fa-user"></i> Мои билеты</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="admin.html"><i class="fas fa-chart-line"></i> Админ-панель</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html"><i class="fas fa-sign-out-alt"></i> Выход</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- АДМИН-ПАНЕЛЬ -->
+    <div class="admin-section">
+        <div class="container">
+            <div class="admin-header">
+                <i class="fas fa-shield-alt"></i>
+                <h2>Админ-панель</h2>
+                <p>Управление билетами пользователей</p>
+            </div>
+
+            <div class="stats-cards">
+                <div class="stat-card">
+                    <i class="fas fa-ticket-alt"></i>
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Всего билетов</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Пользователей</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-ruble-sign"></i>
+                    <div class="stat-number">4,200</div>
+                    <div class="stat-label">Выручка (₽)</div>
+                </div>
+            </div>
+
+            <div class="admin-table-wrapper">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Пользователь</th>
+                            <th>Фильм</th>
+                            <th>Дата</th>
+                            <th>Время</th>
+                            <th>Место</th>
+                            <th>Цена</th>
+                            <th>Действие</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1001</td>
+                            <td>Иван Петров</td>
+                            <td>Дюна: Часть вторая</td>
+                            <td>20.05.2025</td>
+                            <td>19:00</td>
+                            <td>5-12</td>
+                            <td>500 ₽</td>
+                            <td><button class="btn-delete"><i class="fas fa-trash"></i></button></td>
+                        </tr>
+                        <tr>
+                            <td>1002</td>
+                            <td>Иван Петров</td>
+                            <td>Оппенгеймер</td>
+                            <td>21.05.2025</td>
+                            <td>21:00</td>
+                            <td>3-8</td>
+                            <td>550 ₽</td>
+                            <td><button class="btn-delete"><i class="fas fa-trash"></i></button></td>
+                        </tr>
+                        <tr>
+                            <td>1003</td>
+                            <td>Мария Смирнова</td>
+                            <td>Барби</td>
+                            <td>22.05.2025</td>
+                            <td>18:30</td>
+                            <td>2-5</td>
+                            <td>450 ₽</td>
+                            <td><button class="btn-delete"><i class="fas fa-trash"></i></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- ПОДВАЛ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4><i class="fas fa-film"></i> CINEMABOOK</h4>
+                    <p>Онлайн-сервис покупки билетов в кинотеатры города</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Контакты</h5>
+                    <p><i class="fas fa-phone"></i> +7 (999) 999-99-91<br>
+                    <i class="fas fa-envelope"></i> info@cinemabook.ru</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Мы в соцсетях</h5>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/movies.js"></script>
+</body>
+</html> 
